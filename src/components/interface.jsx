@@ -33,16 +33,10 @@ export const Interface = () => {
         <div className="flex flex-col items-center w-screen">
             <AboutSection />
             <SkillsSection />
+            <Section>
+                <h1> Projects</h1>
+            </Section>
             <ContactSection />
-            <Section>
-                <h1> Home </h1>
-            </Section>
-            <Section>
-                <h1> Projects </h1>
-            </Section>
-            <Section>
-                <h1> Contact </h1>
-            </Section>
         </div>
     )
 };
@@ -76,7 +70,7 @@ const AboutSection = () => {
             <motion.button className={`bg-indigo-600 text-white py-4 px-8 
             rounded-lg font-bold text-lg mt-16`}
 
-                whileHover={{ scale: 1.3}} 
+                whileHover={{ scale: 1.3 }}
                 initial={{
                     opacity: 0,
                     y: 25,
@@ -155,78 +149,91 @@ const languages = [
 const SkillsSection = () => {
     return (
         <Section>
-            <div>
+            <motion.div whileInView={"visible"}>
                 <h2 className="text-5xl font-bold">Skills</h2>
                 <div className="mt-8 space-y-4">
                     {skills.map((skill, index) => (
                         <div className="w-64" key={index}>
                             <motion.h3 className="text-xl font-bold text-gray-800"
-                                initial={{
+                              initial={
+                                {
                                     opacity: 0,
-                                    y: 25,
-                                }}
-                                whileInView={{
-                                    opacity: 1,
-                                    y: 0,
-                                }}
-                                transition={{
-                                    duration: 1,
-                                    delay: 1.5,
-                                }}>{skill.title}</motion.h3>
+                                }
+                            }
+                                variants={{
+                                    visible: {
+                                        opacity: 1,
+                                        transition: {
+                                            duration: 1,
+                                            delay: 1 + index * 0.2,
+                                        }
+                                    }
+                                }
+                                }>{skill.title}
+                            </motion.h3>
                             <div className="h-2 w-full bg-gray-200 rounded-full mt-2">
                                 <motion.div className="h-full bg-indigo-500 rounded-full" style={{ width: `${skill.level}%` }}
                                     initial={{
-                                        opacity: 0,
-                                        y: 25,
+                                        scaleX: 0,
+                                        originX: 0,
                                     }}
-                                    whileInView={{
-                                        opacity: 1,
-                                        y: 0,
+                                    variants={{
+                                        visible: {
+                                            scaleX: 1,
+                                            transition: {
+                                                duration: 1,
+                                                delay: 1 + index * 0.2,
+                                            }
+                                        }
+
                                     }}
-                                    transition={{
-                                        duration: 1,
-                                        delay: 1.5,
-                                    }} />
+                                />
 
 
                             </div>
                         </div>
                     ))}
                 </div>
-            </div>
+            </motion.div>
 
 
-            <div>
+            <motion.div whileInView={"visible"}>
                 <h2 className="text-5xl font-bold mt-10">Languages</h2>
                 <div className="mt-8 space-y-4">
                     {languages.map((lng, index) => (
                         <div className="w-64" key={index}>
                             <motion.h3 className="text-xl font-bold text-gray-800"
-                                initial={{
-                                    opacity: 0,
-                                    y: 25,
-                                }}
-                                whileInView={{
-                                    opacity: 1,
-                                    y: 0,
-                                }}
-                                transition={{
-                                    duration: 1,
-                                    delay: 1.5,
-                                }}>{lng.title} </motion.h3>
+                                initial={
+                                    {
+                                        opacity: 0,
+                                    }
+                                }
+
+                                variants={{
+                                    visible: {
+                                        opacity: 1,
+                                        transition: {
+                                            duration: 1,
+                                            delay: 2 + index * 0.2,
+                                        }
+                                    }
+                                }
+                                }>{lng.title} </motion.h3>
                             <div className="h-2 w-full bg-gray-200 rounded-full mt-2">
                                 <motion.div className="h-full bg-indigo-500 rounded-full" style={{ width: `${lng.level}%` }}
                                     initial={{
-                                        opacity: 0,
-                                        y: 25,
+                                        scaleX: 0,
+                                        originX: 0,
                                     }}
-                                    whileInView={{
-                                        opacity: 1,
-                                        y: 0,
-                                    }}
-                                    transition={{
-                                        duration: 1,
-                                        delay: 1.5,
+                                    variants={{
+                                        visible: {
+                                            scaleX: 1,
+                                            transition: {
+                                                duration: 1,
+                                                delay: 2 + index * 0.2,
+                                            }
+                                        }
+
                                     }} />
 
 
@@ -234,7 +241,7 @@ const SkillsSection = () => {
                         </div>
                     ))}
                 </div>
-            </div>
+            </motion.div>
         </Section>
     );
 
