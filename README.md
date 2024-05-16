@@ -2,8 +2,7 @@
 A boilerplate to build R3F projects
 
 ```
-yarn
-yarn dev
+ a web application using React for its front-end. The component includes a styled button using Tailwind CSS for styling and Framer Motion for animation effects
 ```
 
 
