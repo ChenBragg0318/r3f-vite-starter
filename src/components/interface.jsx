@@ -33,9 +33,9 @@ export const Interface = () => {
         <div className="flex flex-col items-center w-screen">
             <AboutSection />
             <SkillsSection />
-            <Section>
-                <h1> Projects</h1>
-            </Section>
+           
+            <ProjectSection/>
+        
             <ContactSection />
         </div>
     )
@@ -63,29 +63,31 @@ const AboutSection = () => {
                     delay: 1.5,
                 }}>
 
-                I am an computer science student
+                I am a computer science student
                 <br />
                 currently working as junior developer
             </motion.p>
-            <motion.button className={`bg-indigo-600 text-white py-4 px-8 
-            rounded-lg font-bold text-lg mt-16`}
+            <a href="https://example.com" target="_blank" rel="noopener noreferrer">
+                <motion.button className={`bg-indigo-600 text-white py-4 px-8 
+            rounded-lg font-bold text-lg mt-16`} 
 
-                whileHover={{ scale: 1.3 }}
-                initial={{
-                    opacity: 0,
-                    y: 25,
-                }}
-                whileInView={{
-                    opacity: 1,
-                    y: 0,
-                }}
-                transition={{
-                    duration: 1,
-                    delay: 2.5,
-                }}
-            >
-                Contact me
-            </motion.button>
+                    whileHover={{ scale: 1.3 }}
+                    initial={{
+                        opacity: 0,
+                        y: 25,
+                    }}
+                    whileInView={{
+                        opacity: 1,
+                        y: 0,
+                    }}
+                    transition={{
+                        duration: 1,
+                        delay: 2.5,
+                    }}
+                >
+                    Contact me
+                </motion.button>
+            </a>
 
         </Section>
 
@@ -108,7 +110,8 @@ const skills = [
     },
     {
         title: "MySQL",
-        level: 80
+        level: 50
+        
     },
     {
         title: "Python",
@@ -277,4 +280,39 @@ const ContactSection = () => {
         </Section>
     );
 
+    
 }
+
+const ProjectSection = () => {
+    return (
+    <Section>
+        <h2 className="text-5xl font-bold">Project </h2>
+        <a href="https://github.com/ChenBragg0318/Data-visualisation-Group-work" target="_blank" rel="noopener noreferrer">
+            <motion.button className="bg-indigo-600 text-white py-4 px-8 rounded-lg font-bold text-lg mt-16"
+                        whileHover={{ scale: 1.3 }}>
+                       Data Visualization and User-Friendly Interfaces
+                    </motion.button>
+        </a>
+        <a href="https://github.com/ChenBragg0318/VeterinarySurgeryManagementSystem" target="_blank" rel="noopener noreferrer">
+            <motion.button className="bg-indigo-600 text-white py-4 px-8 rounded-lg font-bold text-lg mt-16"
+                        whileHover={{ scale: 1.3 }}>
+                       Veterinary Surgery Management System (PofC)
+                    </motion.button>
+        </a>
+        <a href="https://example.com" target="_blank" rel="noopener noreferrer">
+            <motion.button className="bg-indigo-600 text-white py-4 px-8 rounded-lg font-bold text-lg mt-16"
+                        whileHover={{ scale: 1.3 }}>
+                     Room Booking System
+                    </motion.button>
+        </a>
+        <a href="https://github.com/ChenBragg0318/iphone-3d-website-starter-main" target="_blank" rel="noopener noreferrer">
+            <motion.button className="bg-indigo-600 text-white py-4 px-8 rounded-lg font-bold text-lg mt-16"
+                        whileHover={{ scale: 1.3 }}>
+                    3D iPhone Animation in React and portfolio website
+                    </motion.button>
+        </a>
+            </Section>
+    );
+
+}
+
